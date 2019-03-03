@@ -1,0 +1,20 @@
+<br>
+<br><br>
+    <div class="row">
+        {{!-- {{# each products}} --}}
+        <div class="col-sm-6 col-md-4">
+            <div class="card">
+                <img class="img-responsive" src="{{ products.imagePath }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ products.title }}</h5>
+                    <p class="card-text">{{ products.description }}</p>
+                    <div>
+                        <div class="float-left">{{ products.price }}₹</div>
+                        <a href="/add-to-cart/{{ products._id }}" class="btn btn-success float-right">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- {{/each}} --}}
+    </div>
+    <br>

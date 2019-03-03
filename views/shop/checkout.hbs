@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h2>Checkout</h2>
+    </div>
+    {{# if message }}
+      <div class="alert alert-success">Payment Successful {{ total }}</div>
+    {{ else }}
+    
+    <div class="row justify-content-center">
+        <h4>Your total: {{ total }}</h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+   <h4 class="mb-3">Payment</h4>
+    <div class="container row justify-content-center">
+            <form action="/user/transaction" method="POST">
+               <script
+                   src="https://checkout.stripe.com/checkout.js"
+                   class="stripe-button"
+                   data-key='pk_test_9sfrgweK7ZHdxBgno55ucfaV'
+                   data-amounts='{{ total }}'
+                   data-name='Your Payment'
+                   data-description='To Buy your items'
+                   data-img="https://stripe.com/img/documentation/checkout/marketplace.png"
+                   data-locate='auto'
+                   data-currency='usd'
+                   >
+               </script>
+               <input type="hidden" name="chargeAmount" value="{{total}}">
+           </form>
+          </div>
+  </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/js/checkout.js"></script>
+{{/if}}

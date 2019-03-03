@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h1>Custom Products</h1>
+        {{# if successMessage }}
+            <div class="alert alert-success"> <p>{{successMessage}}</p></div>
+        {{else}}
+            {{# if dangerMessage }}
+            <div class="alert alert-danger"> <p>{{dangerMessage}}</p></div>
+            {{/if}}
+        {{/if}}
+        <form action="/user/custom-product" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="title" class="form-control" placeholder="Your name" required>
+            </div>
+             <div class="form-group">
+                <label for="password">Contact Number </label>
+                <input type="number" name="number" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea name="description" placeholder="Describe your custom ceramic in few words" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+             <div class="form-group">
+                <label for="password">Price </label>
+                <input type="number" placeholder="expected price" name="price" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="exampleFormControlFile1">Image</label>
+                <input type="file" name="imagePath" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <input type="hidden" name="_csrf" value="{{ token }}">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<br>
+<br><br>
+{{# if errors }}
+<h3>{{ errors }}</h3>
+{{/if}}
+{{# each products }}
+    <div class="row">
+        {{# each this }}
+        <div class="col-xs-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ this.imagePath }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ this.title }}</h5>
+                    <p class="card-text">{{ this.description }}</p>
+                    <div>
+                        <div class="float-left">{{ this.price }}₹</div>
+                        <a href="/add-to-cart/{{ this._id }}" class="btn btn-success float-right">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <br>
+{{/each}}
+

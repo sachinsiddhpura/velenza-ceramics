@@ -1,0 +1,63 @@
+ <script>
+     function calculator(){
+      let Wastage = (5/100);
+      const lengthOfRoom = document.getElementById('lr').value;
+      const breadthOfRoom = document.getElementById('br').value;
+
+      let totalRoomArea = lengthOfRoom*breadthOfRoom;
+      let perimeterOfRoom = 2*lengthOfRoom + 2*breadthOfRoom;
+
+      const skirtingTileHeight = document.getElementById('sh').value;
+      const skirtingTileArea = perimeterOfRoom*skirtingTileHeight
+      
+      const totalAreaLaid = totalRoomArea + skirtingTileArea;
+
+      const tileBreadth = document.getElementById('tb').value;
+      const tileWidth = document.getElementById('tw').value;
+
+      const areaOfTile = tileBreadth*tileWidth;
+      const result1 = (totalAreaLaid/areaOfTile)*Wastage
+      const result = (totalAreaLaid/areaOfTile) + result1;
+      const tileCost =  document.getElementById('tc').value;
+
+      document.getElementById('result').innerHTML ='Approximately ' + result.toFixed(0) + ' number of tiles required' + 'and Cost of tiles are ₹' + result.toFixed(0)*tileCost;
+      let element = document.getElementById('result');
+      element.classList.add('alert');
+      element.classList.add('alert-success');
+     }
+    </script>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h1>Tile Calculator</h1>
+            <div class="form-group">
+                <label for="name">Room Length( mtrs )</label>
+                <input type="text" id="lr" name="lr" class="form-control" placeholder="length of room" required>
+            </div>
+             <div class="form-group">
+                <label for="name">Room Breadth (mtrs )</label>
+                <input type="text" id="br" name="length" class="form-control" placeholder="breadth of room" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Skirt Height  (mtrs )</label>
+                <input type="text" id="sh" name="length" class="form-control" placeholder="Height of skirting Tile" required>
+            </div>
+             <div class="form-group">
+                <label for="name">Tile Breadth  (mtrs )</label>
+                <input type="text" id="tb" name="length" class="form-control" placeholder="breadth of tile" required>
+            </div>
+             <div class="form-group">
+                <label for="name">Tile Width  (mtrs )</label>
+                <input type="text" id="tw" name="length" class="form-control" placeholder="width of tile" required>
+            </div>
+             <div class="form-group">
+                <label for="name">Each Tile Cost  (mtrs ) </label>
+                <input type="text" id="tc" name="length" class="form-control" placeholder="cost of per tile" required>
+            </div>
+            <button class="btn btn-primary" onclick="calculator()" type="submit">Calculate</button>
+            <br><br>
+            <div class="container">
+            <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</div>

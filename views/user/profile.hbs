@@ -1,0 +1,20 @@
+<div class="container">
+<h1>Profile</h1>
+<br>
+<h2>Welcome {{ user.name }}</h2>
+<br>
+{{# if user.isAdmin }}
+<div class="list-group">
+  <a href="/admin/manage-product" class="list-group-item list-group-item-action">Manage Products</a>
+  <a href="/admin/add-product" class="list-group-item list-group-item-action">Add Products</a>
+  <a href="/admin/manage-users" class="list-group-item list-group-item-action">Manage Users</a>
+  <a href="/admin/manage-custom-product" class="list-group-item list-group-item-action">Manage Custom Products</a>
+  <a href="/admin/create-admin" class="list-group-item list-group-item-action">Create Admin</a>
+
+  </div>
+  {{ else }}
+    <div class="list-group">
+      <a href="/user/custom-product"  class="list-group-item list-group-item-action">Add Custom Product</a>
+    </div>
+  {{/if}}
+</div>
